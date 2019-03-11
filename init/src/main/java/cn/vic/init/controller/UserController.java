@@ -25,7 +25,9 @@ public class UserController {
 
     @PostMapping("user")
     public int add(@RequestBody User user) {
-        return userService.add(user);
+//        return userService.add(user);
+        userService.add(user);
+        return user.getId(); // 这个可以获得自增的 ID 值
     }
 
     @DeleteMapping("user/{id}")
