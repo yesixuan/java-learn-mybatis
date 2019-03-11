@@ -18,4 +18,8 @@ public interface UserMapper {
     int update(@Param("id") Integer id, @Param("user") User user);
 
     int delete(Integer id);
+
+    int batchSave(List<User> userList);
+
+    int batchDelete(List<Integer> idList);
 }

@@ -39,4 +39,14 @@ public class UserController {
     public int update(@PathVariable("id") Integer id, @RequestBody User user) {
         return userService.update(id, user);
     }
+
+    @PostMapping("batchSave")
+    public int batchSave(@RequestBody List<User> userList) {
+        return userService.batchSave(userList);
+    }
+
+    @PostMapping("batchDelete")
+    public int batchDelete(@RequestBody List<Integer> idList) {
+        return userService.batchDelete(idList);
+    }
 }

@@ -48,4 +48,21 @@
         WHERE
         id = #{id}
     </delete>
+
+    <!--批量操作-->
+    <insert id="batchSave" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `tb_user`
+        (username,age,ctm)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.username},#{item.age},now())
+        </foreach>
+    </insert>
+
+    <delete id="batchDelete" parameterType="java.util.List">
+        DELETE FROM `tb_user` WHERE id IN
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

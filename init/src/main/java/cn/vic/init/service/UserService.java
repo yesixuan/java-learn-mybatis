@@ -36,4 +36,12 @@ public class UserService {
     public int delete(Integer id) {
         return userMapper.delete(id);
     }
+
+    public int batchSave(List<User> userList) {
+        return userMapper.batchSave(userList);
+    }
+
+    public int batchDelete(List<Integer> idList) {
+        return userMapper.batchDelete(idList);
+    }
 }
