@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.vic.init.mapper.TUserMapper" >
+    <resultMap id="userWithIdCardMap" type="cn.vic.init.bean.TUser" >
+        <association property="idCard" column="card_id" javaType="cn.vic.init.bean.IdCard" select="selectIdCard" />
+    </resultMap>
+
+    <select id="selectByWithIdCard" resultMap="userWithIdCardMap" parameterType="java.lang.Long">
+        SELECT * FROM `t_user` WHERE id = #{id}
+    </select>
+
+    <select id="selectIdCard" resultType="cn.vic.init.bean.IdCard" parameterType="java.lang.Integer">
+        SELECT * FROM `t_idcard` WHERE id = #{id}
+    </select>
+</mapper>
