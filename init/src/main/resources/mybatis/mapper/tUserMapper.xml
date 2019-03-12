@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.vic.init.mapper.TUserMapper" >
+    <!--嵌套查询-->
     <resultMap id="userWithIdCardMap" type="cn.vic.init.bean.TUser" >
         <association property="idCard" column="card_id" javaType="cn.vic.init.bean.IdCard" select="selectIdCard" />
     </resultMap>
@@ -11,5 +12,25 @@
 
     <select id="selectIdCard" resultType="cn.vic.init.bean.IdCard" parameterType="java.lang.Integer">
         SELECT * FROM `t_idcard` WHERE id = #{id}
+    </select>
+
+    <!--嵌套结果-->
+    <resultMap id="userWithIdCardMap2" type="cn.vic.init.bean.TUser">
+        <id property="id" column="uid" javaType="java.lang.Long"></id>
+        <result property="username" column="username" javaType="java.lang.String"></result>
+        <result property="age" column="age" javaType="java.lang.Integer"></result>
+        <association property="idCard" javaType="cn.vic.init.bean.IdCard">
+            <id property="id" column="cid" javaType="java.lang.Long"></id>
+            <!--此处有一个巨坑：property 的值必须跟实体类一模一样（区分大小写）-->
+            <result property="cardNo" column="card_no" javaType="java.lang.String"></result>
+            <result property="address" column="address" javaType="java.lang.String"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectByIdWithIdCard2" resultMap="userWithIdCardMap2" parameterType="java.lang.Long">
+        SELECT u.id AS uid, u.username, u.age, c.id AS cid, c.card_no, c.address
+        FROM `t_user` u
+        JOIN `t_idcard` c
+        WHERE u.id = #{id}
     </select>
 </mapper>
