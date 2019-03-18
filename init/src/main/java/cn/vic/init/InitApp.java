@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("cn.vic.init.mapper")
+@MapperScan(value = "cn.vic.init.mapper", nameGenerator = MapperNameGenerator.class)
 public class InitApp {
 
     public static void main(String[] args) {

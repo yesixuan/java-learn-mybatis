@@ -8,8 +8,16 @@ spring:
     username: root
     password: root
 
+
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
-  config-location: classpath:mybatis/mybatis-config.xml
-#  type-aliases-package: cn.vic.init.bean
+#  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: cn.vic.init.bean
+
+logging:
+  level:
+    root: WARN # 控制台日志只打印 WARN 级别的
+    cn.vic.init.mapper.*: debug # mybatis 打印 SQL 语句
+
+
 

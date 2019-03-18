@@ -7,6 +7,8 @@ ext {
             "org.springframework.boot:spring-boot-starter-web:${versions.springBootVersion}",
             "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBootVersion}",
             "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0",
+            "tk.mybatis:mapper-spring-boot-starter:2.1.5",
+            "com.github.pagehelper:pagehelper-spring-boot-starter:1.2.10",
             "org.apache.commons:commons-lang3:3.5"
         ],
         mysql  : [
