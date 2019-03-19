@@ -48,4 +48,10 @@
         WHERE
         id = #{id}
     </delete>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM tb_user u
+    </select>
 </mapper>

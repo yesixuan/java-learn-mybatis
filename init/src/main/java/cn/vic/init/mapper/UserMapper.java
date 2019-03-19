@@ -1,6 +1,8 @@
 package cn.vic.init.mapper;
 
 import cn.vic.init.bean.User;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +20,6 @@ public interface UserMapper {
     int update(@Param("id") Integer id, @Param("user") User user);
 
     int delete(Integer id);
+
+    Page<User> findAll();
 }

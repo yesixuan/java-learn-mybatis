@@ -2,6 +2,7 @@ package cn.vic.init.service;
 
 import cn.vic.init.bean.User;
 import cn.vic.init.mapper.UserMapper;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,9 @@ public class UserService {
 
     public int delete(Integer id) {
         return userMapper.delete(id);
+    }
+
+    public Page<User> findAll() {
+        return userMapper.findAll();
     }
 }

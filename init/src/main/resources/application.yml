@@ -14,6 +14,19 @@ mybatis:
 #  config-location: classpath:mybatis/mybatis-config.xml
   type-aliases-package: cn.vic.init.bean
 
+#mapper:
+#  mappers:
+#    - cn.vic.init.util.MyMapper
+#  not-empty: false
+#  identity: MYSQL
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+
 logging:
   level:
     root: WARN # 控制台日志只打印 WARN 级别的
