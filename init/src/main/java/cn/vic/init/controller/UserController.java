@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("user")
-    public int add(@RequestBody User user) {
+    public int add(@RequestBody @Valid User user) {
         return userService.add(user);
     }
 

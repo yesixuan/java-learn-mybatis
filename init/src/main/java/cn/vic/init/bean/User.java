@@ -1,10 +1,12 @@
 package cn.vic.init.bean;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 public class User {
 
     private int id;
+    @NotEmpty(message = "用户名可不能为空啊！！！")
     private String username;
     private int age;
     private Date ctm;
