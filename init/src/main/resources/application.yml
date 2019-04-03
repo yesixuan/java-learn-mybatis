@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -30,7 +33,7 @@ pagehelper:
 logging:
   level:
     root: WARN # 控制台日志只打印 WARN 级别的
-    cn.vic.init.mapper.*: debug # mybatis 打印 SQL 语句
+    cn.vic.init.mapper.*: debug# mybatis 打印 SQL 语句
 
 
 
